@@ -1,0 +1,62 @@
+body {
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    background-color: #f0f0f0;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
+.container {
+    max-width: 600px;
+    margin: 20px;
+    padding: 40px;
+    background-color: #fff;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    border-radius: 15px;
+    transition: box-shadow 0.3s ease;
+}
+
+.container:hover {
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.2);
+}
+
+header {
+    text-align: center;
+    padding-bottom: 20px;
+}
+
+header h1 {
+    color: #4caf50;
+    font-size: 32px;
+}
+
+main {
+    text-align: center;
+}
+
+.affirmation-container {
+    margin-top: 30px;
+}
+
+#affirmationText {
+    font-size: 20px;
+    color: #555;
+}
+
+#generateAffirmation {
+    padding: 14px 20px;
+    border: none;
+    cursor: pointer;
+    border-radius: 15px;
+    background-color: #4caf50;
+    color: #fff;
+    font-size: 16px;
+    margin-top: 20px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+#generateAffirmation:hover {
+    background-color: #45a049;
+}
