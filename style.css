@@ -30,6 +30,16 @@ header {
     border-radius: 8px 8px 0 0;
 }
 
+header h1 {
+    font-size: 24px;
+    margin: 0;
+}
+
+header p {
+    font-size: 14px;
+    margin-top: 10px;
+}
+
 main {
     margin-top: 20px;
 }
@@ -42,6 +52,7 @@ main {
     font-size: 20px;
     margin-bottom: 20px;
     color: #333;
+    font-style: italic;
 }
 
 button {
@@ -57,4 +68,21 @@ button {
 
 button:hover {
     background-color: #219653;
+}
+
+/* Animation for the button click */
+button:active {
+    transform: translateY(2px);
+}
+
+/* Animation for the affirmation text */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
