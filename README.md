@@ -20,3 +20,25 @@ Welcome to the Daily Affirmation Generator project! This simple web application 
 
 ```bash
 git clone https://github.com/arigithubs/daily-affirmation-generator.git
+
+Open index.html in your web browser.
+
+Click the "Generate Affirmation" button to receive a positive message.
+
+Customization
+Feel free to customize the list of affirmations in the script.js file to tailor the experience to your preferences or the preferences of your target audience.
+
+javascript
+Copy code
+const affirmations = [
+    "Today, I am filled with gratitude.",
+    "I attract positivity and abundance into my life.",
+    // Add more affirmations as needed
+];
+License
+This project is licensed under the MIT License - see the LICENSE file for details.
+
+Acknowledgments
+Affirmations sourced from positivepsychology.com.
+Inspired by the idea of promoting positivity and self-care.
+Happy affirming!
