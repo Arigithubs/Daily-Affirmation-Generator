@@ -1,6 +1,6 @@
 body {
-    font-family: 'Helvetica Neue', Arial, sans-serif;
-    background-color: #f0f0f0;
+    font-family: 'Arial', sans-serif;
+    background-color: #f5f5f5;
     margin: 0;
     display: flex;
     align-items: center;
@@ -12,9 +12,9 @@ body {
     max-width: 600px;
     margin: 20px;
     padding: 40px;
-    background-color: #fff;
+    background-color: #ffffff;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
-    border-radius: 15px;
+    border-radius: 10px;
     transition: box-shadow 0.3s ease;
 }
 
@@ -23,40 +23,43 @@ body {
 }
 
 header {
+    background-color: #4caf50;
+    color: #ffffff;
     text-align: center;
-    padding-bottom: 20px;
-}
-
-header h1 {
-    color: #4caf50;
-    font-size: 32px;
+    padding: 20px;
+    border-radius: 8px 8px 0 0;
 }
 
 main {
-    text-align: center;
+    margin-top: 20px;
 }
 
 .affirmation-container {
-    margin-top: 30px;
+    text-align: center;
 }
 
 #affirmationText {
-    font-size: 20px;
-    color: #555;
+    font-size: 18px;
+    margin-bottom: 20px;
 }
 
-#generateAffirmation {
-    padding: 14px 20px;
+button {
+    padding: 12px;
     border: none;
     cursor: pointer;
-    border-radius: 15px;
-    background-color: #4caf50;
-    color: #fff;
-    font-size: 16px;
-    margin-top: 20px;
+    border-radius: 8px;
     transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-#generateAffirmation:hover {
-    background-color: #45a049;
+button:hover {
+    background-color: #2196f3;
+    color: #ffffff;
 }
+
+button:disabled {
+    background-color: #ccc;
+    color: #666;
+    cursor: not-allowed;
+}
+
+</style>
