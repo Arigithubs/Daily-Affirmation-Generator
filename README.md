@@ -19,4 +19,4 @@ Welcome to the Daily Affirmation Generator project! This simple web application 
 1. Clone the repository to your local machine.
 
 ```bash
-git clone https://github.com/your-username/daily-affirmation-generator.git
+git clone https://github.com/arigithubs/daily-affirmation-generator.git
