@@ -1,4 +1,4 @@
-Certainly! Here's the updated `README.md` file with additional information about the JavaScript logic:
+Certainly! Here's an enhanced version of the `README.md` file with additional information and styling:
 
 ```markdown
 # Daily Affirmation Generator
@@ -35,12 +35,16 @@ const affirmations = [
 
 ### `generateRandomAffirmation` Function
 
-This function generates a random index within the range of the affirmations array and sets the text content of the HTML element (`affirmationText`) to the randomly selected affirmation.
+This function generates a random index within the range of the affirmations array and sets the text content of the HTML element (`affirmationText`) to the randomly selected affirmation. Additionally, it temporarily disables the button after a click to prevent rapid clicks, providing a better user experience.
 
 ```javascript
 function generateRandomAffirmation() {
+    generateAffirmationButton.disabled = true;
     const randomIndex = Math.floor(Math.random() * affirmations.length);
     affirmationText.textContent = affirmations[randomIndex];
+    setTimeout(function () {
+        generateAffirmationButton.disabled = false;
+    }, 1000);
 }
 ```
 
@@ -76,16 +80,13 @@ git clone https://github.com/arigithubs/daily-affirmation-generator.git
 
 Feel free to customize the list of affirmations in the `script.js` file to tailor the experience to your preferences or the preferences of your target audience.
 
+## Styles
+
+The styles are defined in the `style.css` file to enhance the visual appeal of the application.
+
 ## License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
-## Acknowledgments
-
-- Affirmations sourced from [positivepsychology.com](https://positivepsychology.com/daily-affirmations/).
-- Inspired by the idea of promoting positivity and self-care.
-
 Happy affirming!
 ```
-
-This updated `README.md` provides more details about the JavaScript logic, helping users understand how the affirmation generation works in the Daily Affirmation Generator.
