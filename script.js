@@ -19,11 +19,19 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // Function to generate a random affirmation
     function generateRandomAffirmation() {
+        // Disable the button temporarily to prevent rapid clicks
+        generateAffirmationButton.disabled = true;
+
         // Generate a random index within the range of the affirmations array
         const randomIndex = Math.floor(Math.random() * affirmations.length);
 
         // Set the text content of the affirmationText element to the randomly selected affirmation
         affirmationText.textContent = affirmations[randomIndex];
+
+        // Enable the button after a brief delay to allow users to click again
+        setTimeout(function () {
+            generateAffirmationButton.disabled = false;
+        }, 1000);
     }
 
     // Event listener for the "Generate Affirmation" button
