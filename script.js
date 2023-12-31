@@ -5,29 +5,29 @@ document.addEventListener('DOMContentLoaded', () => {
     const affirmations = [
         "Embracing the beauty of this moment, I am filled with gratitude.",
         "As I navigate my day, I effortlessly attract positivity and abundance.",
-        // Add more as needed...
+        // ... Add more as needed
     ];
 
-    const displayAffirmation = () => {
-        const randomIndex = Math.floor(Math.random() * affirmations.length);
-        const affirmation = affirmations[randomIndex];
-        affirmationText.textContent = affirmation;
-    };
-
-    const animateAffirmation = () => {
-        let i = 0;
-        const timer = setInterval(() => {
-            if (i < affirmations.length) {
-                displayAffirmation();
-                i++;
+    const displayAffirmation = (affirmation) => {
+        affirmationText.textContent = '';
+        let index = 0;
+        const typeWriter = setInterval(() => {
+            if (index < affirmation.length) {
+                affirmationText.textContent += affirmation.charAt(index);
+                index++;
             } else {
-                clearInterval(timer);
+                clearInterval(typeWriter);
             }
-        }, 4000); // Change affirmation every 4 seconds
+        }, 50); // Typing speed in milliseconds
     };
 
-    generateButton.addEventListener('click', displayAffirmation);
+    const generateRandomAffirmation = () => {
+        const randomIndex = Math.floor(Math.random() * affirmations.length);
+        displayAffirmation(affirmations[randomIndex]);
+    };
+
+    generateButton.addEventListener('click', generateRandomAffirmation);
 
     // Initialize with a random affirmation
-    animateAffirmation();
+    generateRandomAffirmation();
 });
