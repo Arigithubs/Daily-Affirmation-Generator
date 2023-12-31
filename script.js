@@ -5,20 +5,18 @@ document.addEventListener('DOMContentLoaded', () => {
     const affirmations = [
         "Embracing the beauty of this moment, I am filled with gratitude.",
         "As I navigate my day, I effortlessly attract positivity and abundance.",
-        // ... Add more as needed
+        // ... Add more unique affirmations
     ];
 
+    // Unique touch: Random background color on new affirmation
+    const setBackgroundColor = () => {
+        const colors = ['#e0f2f1', '#ffe0b2', '#ffccbc', '#c8e6c9', '#d1c4e9']; // Soft pastel palette
+        document.body.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+    };
+
     const displayAffirmation = (affirmation) => {
-        affirmationText.textContent = '';
-        let index = 0;
-        const typeWriter = setInterval(() => {
-            if (index < affirmation.length) {
-                affirmationText.textContent += affirmation.charAt(index);
-                index++;
-            } else {
-                clearInterval(typeWriter);
-            }
-        }, 50); // Typing speed in milliseconds
+        affirmationText.textContent = affirmation;
+        setBackgroundColor(); // Change background color with new affirmation
     };
 
     const generateRandomAffirmation = () => {
@@ -28,6 +26,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
     generateButton.addEventListener('click', generateRandomAffirmation);
 
-    // Initialize with a random affirmation
+    // Initialize with a random affirmation and background color
     generateRandomAffirmation();
 });
