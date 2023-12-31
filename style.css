@@ -3,16 +3,19 @@
     box-sizing: border-box;
     margin: 0;
     padding: 0;
+    transition: background-color 0.3s, color 0.3s; /* Smooth transition for color and background */
 }
 html, body {
     height: 100%;
     font-family: 'Merriweather', serif;
+    background: #f2f2f2; /* Lighter background for a softer look */
+    color: #333; /* Soft text color for better readability */
 }
 
 /* Navigation */
 .main-navigation ul {
     list-style: none;
-    background-color: #2c3e50;
+    background-color: #34495e; /* Darker shade for sophisticated look */
     padding: 10px;
     text-align: center;
 }
@@ -32,26 +35,28 @@ main {
     padding: 50px 20px;
 }
 .affirmation-section, .about-section {
-    background: #ecf0f1;
+    background: #fff; /* Pure white background for focus */
     padding: 20px;
     margin-bottom: 20px;
     border-radius: 5px;
+    box-shadow: 0px 0px 10px rgba(0,0,0,0.1); /* Subtle shadow for depth */
 }
 button {
-    background: #3498db;
+    background: #16a085; /* Calm, sophisticated color */
     color: white;
     border: none;
     padding: 10px 20px;
     cursor: pointer;
-    transition: background 0.3s;
+    border-radius: 5px; /* Rounded corners for a softer look */
+    box-shadow: 0px 0px 5px rgba(0,0,0,0.2); /* Button shadow for depth */
 }
 button:hover {
-    background: #2980b9;
+    background: #1abc9c; /* Lighter shade on hover */
 }
 
 /* Footer */
 footer {
-    background: #2c3e50;
+    background: #34495e; /* Matching the nav for consistency */
     color: white;
     text-align: center;
     padding: 10px 0;
