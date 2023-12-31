@@ -5,32 +5,49 @@ document.addEventListener('DOMContentLoaded', function () {
     const affirmations = [
         "Embracing the beauty of this moment, I am filled with gratitude.",
         "As I navigate my day, I effortlessly attract positivity and abundance.",
-        // Add more affirmations as needed...
+        "Confident in my abilities, I gracefully achieve my goals.",
+        "In the vast expanse of my potential, I discover limitless possibilities.",
+        "Releasing negativity, I choose to embrace positivity in every thought.",
+        "Worthy of love and happiness, I radiate these feelings to the world.",
+        "Trusting the intricate process of life, I find peace in each step.",
+        "Harmonizing with my true self, I am at peace with who I am.",
+        "Radiating confidence, self-respect, and inner harmony, I am unstoppable.",
+        "A beacon of love and compassion, I create a ripple of positive impact."
     ];
 
     function generateRandomAffirmation() {
+        generateAffirmationButton.disabled = true;
         const randomIndex = Math.floor(Math.random() * affirmations.length);
-        affirmationText.textContent = affirmations[randomIndex];
+        const chosenAffirmation = affirmations[randomIndex];
+
+        animateText(chosenAffirmation, affirmationText, 100, 30, function () {
+            setTimeout(function () {
+                generateAffirmationButton.disabled = false;
+            }, 1000);
+        });
     }
 
-    function animateText(text) {
-        affirmationText.textContent = '';
-        let charIndex = 0;
-        const timer = setInterval(() => {
-            if (charIndex < text.length) {
-                affirmationText.textContent += text[charIndex];
-                charIndex++;
-            } else {
-                clearInterval(timer);
-            }
-        }, 50);
-    }
+    generateAffirmationButton.addEventListener('click', generateRandomAffirmation);
 
-    generateAffirmationButton.addEventListener('click', () => {
-        const affirmation = affirmations[Math.floor(Math.random() * affirmations.length)];
-        animateText(affirmation);
-    });
-
-    // Generate an initial affirmation
     generateRandomAffirmation();
+
+    // Function to animate text
+    function animateText(text, element, speed, delay, callback) {
+        const characters = text.split('');
+        let currentIndex = 0;
+
+        function displayNextCharacter() {
+            if (currentIndex < characters.length) {
+                element.innerHTML += characters[currentIndex];
+                currentIndex++;
+                setTimeout(displayNextCharacter, speed);
+            } else {
+                if (callback) {
+                    setTimeout(callback, delay);
+                }
+            }
+        }
+
+        displayNextCharacter();
+    }
 });
