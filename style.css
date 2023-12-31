@@ -1,3 +1,4 @@
+/* Base styles */
 body {
     font-family: 'Garamond', serif;
     background-color: #f8f8f8;
@@ -6,24 +7,39 @@ body {
     align-items: center;
     justify-content: center;
     height: 100vh;
+    line-height: 1.6;
 }
 
+/* Utilize CSS variables for easy theme management */
+:root {
+    --primary-color: #3498db;
+    --secondary-color: #27ae60;
+    --text-color: #333;
+    --background-color: #ffffff;
+    --hover-color: #219653;
+    --shadow-color: rgba(0, 0, 0, 0.1);
+    --hover-shadow-color: rgba(0, 0, 0, 0.2);
+    --border-radius: 10px;
+}
+
+/* Container for the affirmation and button */
 .container {
     max-width: 600px;
     margin: 20px;
     padding: 40px;
-    background-color: #ffffff;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
-    border-radius: 10px;
+    background-color: var(--background-color);
+    box-shadow: 0 0 20px var(--shadow-color);
+    border-radius: var(--border-radius);
     transition: box-shadow 0.3s ease;
 }
 
 .container:hover {
-    box-shadow: 0 0 30px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 0 30px var(--hover-shadow-color);
 }
 
+/* Header styles */
 header {
-    background-color: #3498db;
+    background-color: var(--primary-color);
     color: #ffffff;
     text-align: center;
     padding: 20px;
@@ -40,10 +56,12 @@ header p {
     margin-top: 10px;
 }
 
+/* Main content area */
 main {
     margin-top: 20px;
 }
 
+/* Affirmation text container */
 .affirmation-container {
     text-align: center;
 }
@@ -51,26 +69,28 @@ main {
 #affirmationText {
     font-size: 20px;
     margin-bottom: 20px;
-    color: #333;
+    color: var(--text-color);
     font-style: italic;
+    animation: fadeIn 1s ease forwards;
 }
 
+/* Button styles */
 button {
     padding: 14px;
     border: none;
     cursor: pointer;
     border-radius: 8px;
-    background-color: #27ae60;
+    background-color: var(--secondary-color);
     color: #ffffff;
     font-weight: bold;
     transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 button:hover {
-    background-color: #219653;
+    background-color: var(--hover-color);
 }
 
-/* Animation for the button click */
+/* Active state for the button */
 button:active {
     transform: translateY(2px);
 }
@@ -84,5 +104,21 @@ button:active {
     to {
         opacity: 1;
         transform: translateY(0);
+    }
+}
+
+/* Responsive design for smaller screens */
+@media (max-width: 768px) {
+    .container {
+        margin: 10px;
+        padding: 20px;
+    }
+
+    header h1 {
+        font-size: 20px;
+    }
+
+    header p, #affirmationText {
+        font-size: 16px;
     }
 }
