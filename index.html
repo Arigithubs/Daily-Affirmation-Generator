@@ -1,45 +1,35 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Affirmation Oasis - Experience daily elegance in positivity and self-improvement.">
+    <meta name="description" content="Affirmation Oasis - Embark on a journey of daily positivity and self-improvement.">
     <title>Affirmation Oasis 🌟</title>
     <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&family=Open+Sans&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&display=swap" rel="stylesheet">
 </head>
-
 <body>
     <nav class="main-navigation">
         <ul>
-            <li><a href="#affirmationText">Today's Affirmation</a></li>
+            <li><a href="#affirmation">Today's Affirmation</a></li>
             <li><a href="#about">About</a></li>
         </ul>
     </nav>
-
-    <header class="container">
-        <h1>Affirmation Oasis 🌟</h1>
-        <p>Experience daily elegance in positivity.</p>
-    </header>
-
     <main>
-        <section class="affirmation-container" id="affirmationText">
-            <p aria-live="polite">Today, I am...</p>
+        <section id="affirmation" class="affirmation-section">
+            <h1>Affirmation Oasis 🌟</h1>
+            <p class="lead">Experience daily elegance in positivity.</p>
+            <p id="affirmationText" aria-live="polite">Today, I am...</p>
             <button id="generateAffirmation">Generate Affirmation</button>
         </section>
-
-        <section id="about" class="container">
+        <section id="about" class="about-section">
             <h2>About Affirmation Oasis</h2>
             <p>Learn more about our mission and the benefits of daily affirmations.</p>
         </section>
     </main>
-
-    <footer class="container">
+    <footer>
         <p>© 2023 Affirmation Oasis. All rights reserved.</p>
     </footer>
-
     <script src="script.js"></script>
 </body>
-
 </html>
