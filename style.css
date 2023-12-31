@@ -8,27 +8,37 @@
 html, body {
     height: 100%;
     font-family: 'Merriweather', serif;
-    background: linear-gradient(120deg, #fdfbfb 0%, #ebedee 100%); /* Subtle gradient background */
-    color: #333;
+    background: #f2f2f2; /* Subtle background color */
+    color: #333; /* Sophisticated text color */
+    line-height: 1.6; /* Improved text readability */
+}
+
+/* Stylish Typography */
+h1, h2 {
+    font-weight: 700; /* Bold headers for impact */
+    color: #2c3e50; /* Dark color for contrast and readability */
+    margin-bottom: 0.5em;
+}
+p {
+    font-size: 1.1em; /* Slightly larger paragraph size for readability */
 }
 
 /* Navigation */
 .main-navigation ul {
     list-style: none;
-    background-color: #34495e;
-    padding: 10px;
+    background-color: #34495e; /* Elegant dark blue background */
+    padding: 10px 0;
     text-align: center;
-    position: relative;
-    z-index: 1000; /* Ensure nav is always on top */
 }
 .main-navigation li {
     display: inline;
-    margin: 0 20px;
+    margin: 0 15px;
 }
 .main-navigation a {
     text-decoration: none;
     color: white;
     font-weight: bold;
+    padding-bottom: 5px;
     position: relative;
 }
 .main-navigation a::after {
@@ -37,61 +47,66 @@ html, body {
     width: 0;
     height: 2px;
     display: block;
-    margin-top: 5px;
-    right: 0;
-    background: #1abc9c;
+    background: #1abc9c; /* Accent color for active state */
     transition: width 0.3s ease;
 }
 .main-navigation a:hover::after {
     width: 100%;
-    left: 0;
-    background: #2ecc71;
 }
 
 /* Main Section */
 main {
-    text-align: center;
     padding: 50px 20px;
+    text-align: center;
 }
-.affirmation-section, .about-section {
-    background: rgba(255, 255, 255, 0.9);
+.section {
+    background: white;
     padding: 20px;
-    margin-bottom: 20px;
-    border-radius: 10px;
-    box-shadow: 0px 10px 25px rgba(0,0,0,0.1);
-    backdrop-filter: blur(10px); /* Enhanced blur for frosted glass effect */
-    transform: scale(0.98); /* Slightly scaled down for depth effect */
-}
-.affirmation-section:hover, .about-section:hover {
-    transform: scale(1); /* Scale back to normal on hover */
-    box-shadow: 0px 15px 30px rgba(0,0,0,0.2);
+    margin: 20px 0;
+    border-radius: 10px; /* Rounded corners for a soft, modern look */
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
 }
 
+/* Affirmation Section */
+.affirmation-section {
+    background: linear-gradient(to right, #6dd5fa, #ffffff); /* Light gradient for a fresh feel */
+}
+#affirmationText {
+    font-style: italic;
+    color: #555; /* Darker color for affirmation text */
+    padding: 20px 0;
+    border-bottom: 2px solid #ddd; /* Separator for emphasis */
+    margin-bottom: 20px;
+}
+
+/* Button Styling */
 button {
-    background: #2980b9;
+    background: #16a085; /* Calm color for a peaceful action */
     color: white;
     border: none;
-    padding: 15px 30px;
+    padding: 12px 24px;
     cursor: pointer;
-    border-radius: 50px;
-    box-shadow: 0px 4px 10px rgba(0,0,0,0.2);
-    font-size: 1.1rem;
+    border-radius: 20px; /* Fully rounded edges for a modern pill shape */
+    font-size: 1rem;
+    font-weight: bold;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
+    outline: none; /* Remove default outline */
 }
 button:hover {
-    background: #3498db;
-    transform: translateY(-3px) scale(1.05);
-    box-shadow: 0px 6px 12px rgba(0,0,0,0.3);
+    background: #1abc9c; /* Slightly lighter on hover for interactive feel */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3); /* Increased shadow on hover */
 }
 
 /* Footer */
 footer {
-    background: #34495e;
+    background: #34495e; /* Consistent with navigation for a cohesive look */
     color: white;
     text-align: center;
-    padding: 20px 0;
+    padding: 15px 0;
+    position: relative; /* Needed for any absolute children */
 }
 
-/* Responsive */
+/* Responsive Design */
 @media (max-width: 768px) {
     .main-navigation li {
         display: block;
