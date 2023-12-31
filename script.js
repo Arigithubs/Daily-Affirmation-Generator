@@ -8,20 +8,23 @@ document.addEventListener('DOMContentLoaded', () => {
         // ... Add more unique affirmations
     ];
 
-    // Unique touch: Random background color on new affirmation
-    const setBackgroundColor = () => {
-        const colors = ['#e0f2f1', '#ffe0b2', '#ffccbc', '#c8e6c9', '#d1c4e9']; // Soft pastel palette
-        document.body.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+    const createColorPalette = () => {
+        const hue = Math.floor(Math.random() * 360);
+        const pastel = `hsl(${hue}, 100%, 87.5%)`;
+        document.body.style.backgroundColor = pastel;
     };
 
-    const displayAffirmation = (affirmation) => {
-        affirmationText.textContent = affirmation;
-        setBackgroundColor(); // Change background color with new affirmation
+    const typeWriterEffect = (text, index = 0) => {
+        if (index < text.length) {
+            affirmationText.textContent = text.substring(0, index + 1);
+            setTimeout(() => typeWriterEffect(text, index + 1), 50); // Recursive call for the next character
+        }
     };
 
     const generateRandomAffirmation = () => {
         const randomIndex = Math.floor(Math.random() * affirmations.length);
-        displayAffirmation(affirmations[randomIndex]);
+        typeWriterEffect(affirmations[randomIndex]);
+        createColorPalette(); // Change background color with new affirmation
     };
 
     generateButton.addEventListener('click', generateRandomAffirmation);
