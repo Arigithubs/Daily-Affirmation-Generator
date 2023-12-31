@@ -1,4 +1,4 @@
-document.addEventListener('DOMContentLoaded', function () {
+document.addEventListener('DOMContentLoaded', () => {
     const affirmationText = document.getElementById('affirmationText');
     const generateAffirmationButton = document.getElementById('generateAffirmation');
 
@@ -15,39 +15,42 @@ document.addEventListener('DOMContentLoaded', function () {
         "A beacon of love and compassion, I create a ripple of positive impact."
     ];
 
-    function generateRandomAffirmation() {
-        generateAffirmationButton.disabled = true;
-        const randomIndex = Math.floor(Math.random() * affirmations.length);
-        const chosenAffirmation = affirmations[randomIndex];
-
-        animateText(chosenAffirmation, affirmationText, 100, 30, function () {
-            setTimeout(function () {
-                generateAffirmationButton.disabled = false;
-            }, 1000);
-        });
+    // Function to toggle the button's disabled state
+    const toggleButtonState = (isDisabled) => {
+        generateAffirmationButton.disabled = isDisabled;
     }
 
-    generateAffirmationButton.addEventListener('click', generateRandomAffirmation);
+    // Function to get a random index from an array
+    const getRandomIndex = (array) => Math.floor(Math.random() * array.length);
 
-    generateRandomAffirmation();
+    // Function to generate and display a random affirmation
+    const generateRandomAffirmation = () => {
+        toggleButtonState(true);
+        const chosenAffirmation = affirmations[getRandomIndex(affirmations)];
+        animateText(chosenAffirmation, affirmationText, { speed: 100, delay: 30 }, () => toggleButtonState(false));
+    }
 
     // Function to animate text
-    function animateText(text, element, speed, delay, callback) {
+    const animateText = (text, element, { speed, delay }, callback) => {
+        element.innerHTML = '';
         const characters = text.split('');
-        let currentIndex = 0;
+        let index = 0;
 
-        function displayNextCharacter() {
-            if (currentIndex < characters.length) {
-                element.innerHTML += characters[currentIndex];
-                currentIndex++;
+        const displayNextCharacter = () => {
+            if (index < characters.length) {
+                element.innerHTML += characters[index++];
                 setTimeout(displayNextCharacter, speed);
             } else {
-                if (callback) {
-                    setTimeout(callback, delay);
-                }
+                callback?.();
             }
         }
 
-        displayNextCharacter();
+        setTimeout(displayNextCharacter, delay);
     }
+
+    // Event listener for the Generate Affirmation button
+    generateAffirmationButton.addEventListener('click', generateRandomAffirmation);
+
+    // Initialize the app with a random affirmation
+    generateRandomAffirmation();
 });
