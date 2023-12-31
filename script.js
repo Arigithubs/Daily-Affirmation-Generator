@@ -23,29 +23,23 @@ document.addEventListener('DOMContentLoaded', () => {
     // Function to get a random index from an array
     const getRandomIndex = (array) => Math.floor(Math.random() * array.length);
 
-    // Function to generate and display a random affirmation
-    const generateRandomAffirmation = () => {
-        toggleButtonState(true);
-        const chosenAffirmation = affirmations[getRandomIndex(affirmations)];
-        animateText(chosenAffirmation, affirmationText, { speed: 100, delay: 30 }, () => toggleButtonState(false));
-    }
-
-    // Function to animate text
-    const animateText = (text, element, { speed, delay }, callback) => {
+    // Enhanced text animation function using async/await
+    const animateText = async (text, element, { speed, delay }) => {
         element.innerHTML = '';
         const characters = text.split('');
-        let index = 0;
-
-        const displayNextCharacter = () => {
-            if (index < characters.length) {
-                element.innerHTML += characters[index++];
-                setTimeout(displayNextCharacter, speed);
-            } else {
-                callback?.();
-            }
+        for (let i = 0; i < characters.length; i++) {
+            element.innerHTML += characters[i];
+            await new Promise(resolve => setTimeout(resolve, speed));
         }
+        await new Promise(resolve => setTimeout(resolve, delay));
+    }
 
-        setTimeout(displayNextCharacter, delay);
+    // Function to generate and display a random affirmation
+    const generateRandomAffirmation = async () => {
+        toggleButtonState(true);
+        const chosenAffirmation = affirmations[getRandomIndex(affirmations)];
+        await animateText(chosenAffirmation, affirmationText, { speed: 100, delay: 30 });
+        toggleButtonState(false);
     }
 
     // Event listener for the Generate Affirmation button
